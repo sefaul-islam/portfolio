@@ -1,0 +1,257 @@
+/* ============================================
+   ANIMATIONS & TRANSITIONS
+   ============================================ */
+
+/* FADE-IN ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* FADE-AND-SLIDE ANIMATION */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* FADE-AND-SLIDE LEFT */
+@keyframes fadeSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* FADE-AND-SLIDE RIGHT */
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SCALE-IN ANIMATION */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* GLOW PULSE ANIMATION */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(16, 185, 129, 0.5);
+  }
+}
+
+/* GLOW PULSE BLUE */
+@keyframes glowPulseBlue {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+  }
+}
+
+/* HOVER LIFT ANIMATION */
+@keyframes hoverLift {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-10px);
+  }
+}
+
+/* GRADIENT SHIFT ANIMATION */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ANIMATION CLASSES */
+.animate-fade-in {
+  animation: fadeIn var(--transition-slow) ease-out;
+}
+
+.animate-fade-slide-up {
+  animation: fadeSlideUp var(--transition-slow) ease-out;
+}
+
+.animate-fade-slide-left {
+  animation: fadeSlideLeft var(--transition-slow) ease-out;
+}
+
+.animate-fade-slide-right {
+  animation: fadeSlideRight var(--transition-slow) ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn var(--transition-slow) ease-out;
+}
+
+.animate-glow-pulse {
+  animation: glowPulse 2s ease-in-out infinite;
+}
+
+.animate-glow-pulse-blue {
+  animation: glowPulseBlue 2s ease-in-out infinite;
+}
+
+.animate-hover-lift:hover {
+  animation: hoverLift var(--transition-normal) ease-out forwards;
+}
+
+/* INTERSECTION OBSERVER ANIMATION CLASS */
+.fade-in-observer {
+  opacity: 1; /* Visible by default */
+}
+
+.fade-in-observer.in-view {
+  animation: fadeSlideUp var(--transition-slow) ease-out forwards;
+}
+
+/* STAGGERED ANIMATIONS FOR LISTS */
+.stagger-item {
+  opacity: 1; /* Visible by default */
+}
+
+.stagger-item.in-view {
+  animation: fadeSlideUp var(--transition-slow) ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0ms; }
+.stagger-item:nth-child(2) { animation-delay: 100ms; }
+.stagger-item:nth-child(3) { animation-delay: 200ms; }
+.stagger-item:nth-child(4) { animation-delay: 300ms; }
+.stagger-item:nth-child(5) { animation-delay: 400ms; }
+.stagger-item:nth-child(6) { animation-delay: 500ms; }
+
+/* SMOOTH TRANSITIONS */
+.transition-all {
+  transition: all var(--transition-normal);
+}
+
+.transition-colors {
+  transition: color var(--transition-fast), 
+              background-color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.transition-transform {
+  transition: transform var(--transition-fast);
+}
+
+.transition-opacity {
+  transition: opacity var(--transition-fast);
+}
+
+/* BUTTON HOVER EFFECTS */
+button, .button {
+  transition: all var(--transition-fast);
+}
+
+button:hover:not(:disabled),
+.button:hover {
+  transform: translateY(-2px);
+}
+
+button:active:not(:disabled),
+.button:active {
+  transform: translateY(0);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* CARD HOVER EFFECTS */
+.card-hover {
+  transition: all var(--transition-normal);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* LINK UNDERLINE ANIMATION */
+.link-underline {
+  position: relative;
+  transition: color var(--transition-fast);
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-green);
+  transition: width var(--transition-fast);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* LOADING ANIMATION */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* BOUNCE ANIMATION */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
