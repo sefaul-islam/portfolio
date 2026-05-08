@@ -220,6 +220,6 @@ For issues or questions:
 
 ---
 
-**Built with ❤️ by Sefa Turk**
+**Built with ❤️ by Sefaul Islam**
 
 Made with HTML5, CSS3, and Vanilla JavaScript
